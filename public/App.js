@@ -1,5 +1,4 @@
 import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
-import "./App.css";
 import TextToVoice from "./components/TextToVoice";
 import VoiceToText from "./components/VoiceToText";
 const App = () => {

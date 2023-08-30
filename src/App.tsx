@@ -1,4 +1,3 @@
-import "./App.css";
 import TextToVoice from "./components/TextToVoice";
 import VoiceToText from "./components/VoiceToText";
 
