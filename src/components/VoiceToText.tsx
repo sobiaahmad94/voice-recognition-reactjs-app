@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
 
+// Chakra UI styling
+import {Heading, Container, Box, Button, Text} from "@chakra-ui/react";
+
+  // styling for the list
+  import { ListItem, UnorderedList} from '@chakra-ui/react'
+
 // func comp 
 const VoiceToText: React.FC = () => {
   // state for listening to voice
@@ -101,28 +107,44 @@ const VoiceToText: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2>Voice To Text</h2>
-      <button onClick={toggleListening}>
+    <Container p={4}>
+      <Heading size="lg" color="pink.300">Voice To Text</Heading>
+
+      <Box color="pink.300" display="flex" alignItems="center" mt={4}>
+      <Button type="submit" mt={4} colorScheme="pink" size="lg" onClick={toggleListening}>
         {isListening ? "Stop Listening" : "Start Listening"}
-      </button>
-      <p>Notes taken from recognised text:</p>
-      <ul>
-        {recognisedText.map((note, index) => (
-          <li key={index}>
-            {note}
-            <button onClick={() => handleDeleteNote(index)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-      <div>
-        <p>Current Text:</p>
-        <p>{currentText}</p>
-        <button onClick={handleSaveNote}>Save Note</button>
-        <button onClick={handleClearCurrentNote}>Clear Current Note</button>
-      </div>
-      <button onClick={handleClearAllNotes}>Clear All Notes</button>
-    </div>
+      </Button>
+      </Box>
+
+  <Box color="pink.300" display="flex" alignItems="center" mt={4}>
+  <Box><Text>Notes taken from recognised text:</Text></Box>
+  <UnorderedList margin="10px" spacing={3}>
+    {recognisedText.map((note, index) => (
+      <ListItem key={index}>
+        {note}
+        <Button type="submit" mt={4} colorScheme="red" onClick={() => handleDeleteNote(index)}>Delete</Button>
+      </ListItem>
+      
+    ))}
+  </UnorderedList>
+</Box>
+
+        <Box color="pink.300" display="flex" alignItems="center" mt={4}>
+        <Text>Current Text:</Text>
+        <Text>{currentText}</Text>
+        </Box>
+        <Box ml={2} minWidth="40px">
+        <Button type="submit" mt={4} colorScheme="pink" onClick={handleSaveNote}>Save Note</Button>
+        </Box>
+
+        <Box ml={2} minWidth="40px">
+        <Button type="submit" mt={4} colorScheme="pink" onClick={handleClearCurrentNote}>Clear Current Note</Button>
+        </Box>
+
+      <Box ml={2} minWidth="40px">
+      <Button type="submit" mt={4} colorScheme="pink" onClick={handleClearAllNotes}>Clear All Notes</Button>
+    </Box>
+    </Container>
   );
 };
 

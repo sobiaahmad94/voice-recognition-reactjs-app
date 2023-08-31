@@ -1,5 +1,9 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState, useEffect } from "react";
+// Chakra UI styling
+import { Heading, Container, Box, Button, Text } from "@chakra-ui/react";
+// styling for the list
+import { ListItem, UnorderedList } from '@chakra-ui/react';
 // func comp 
 const VoiceToText = () => {
     // state for listening to voice
@@ -84,6 +88,6 @@ const VoiceToText = () => {
     const handleClearAllNotes = () => {
         setRecognisedText([]);
     };
-    return (_jsxs("div", { children: [_jsx("h2", { children: "Voice To Text" }), _jsx("button", { onClick: toggleListening, children: isListening ? "Stop Listening" : "Start Listening" }), _jsx("p", { children: "Notes taken from recognised text:" }), _jsx("ul", { children: recognisedText.map((note, index) => (_jsxs("li", { children: [note, _jsx("button", { onClick: () => handleDeleteNote(index), children: "Delete" })] }, index))) }), _jsxs("div", { children: [_jsx("p", { children: "Current Text:" }), _jsx("p", { children: currentText }), _jsx("button", { onClick: handleSaveNote, children: "Save Note" }), _jsx("button", { onClick: handleClearCurrentNote, children: "Clear Current Note" })] }), _jsx("button", { onClick: handleClearAllNotes, children: "Clear All Notes" })] }));
+    return (_jsxs(Container, { p: 4, children: [_jsx(Heading, { size: "lg", color: "pink.300", children: "Voice To Text" }), _jsx(Box, { color: "pink.300", display: "flex", alignItems: "center", mt: 4, children: _jsx(Button, { type: "submit", mt: 4, colorScheme: "pink", size: "lg", onClick: toggleListening, children: isListening ? "Stop Listening" : "Start Listening" }) }), _jsxs(Box, { color: "pink.300", display: "flex", alignItems: "center", mt: 4, children: [_jsx(Box, { children: _jsx(Text, { children: "Notes taken from recognised text:" }) }), _jsx(UnorderedList, { margin: "10px", spacing: 3, children: recognisedText.map((note, index) => (_jsxs(ListItem, { children: [note, _jsx(Button, { type: "submit", mt: 4, colorScheme: "red", onClick: () => handleDeleteNote(index), children: "Delete" })] }, index))) })] }), _jsxs(Box, { color: "pink.300", display: "flex", alignItems: "center", mt: 4, children: [_jsx(Text, { children: "Current Text:" }), _jsx(Text, { children: currentText })] }), _jsx(Box, { ml: 2, minWidth: "40px", children: _jsx(Button, { type: "submit", mt: 4, colorScheme: "pink", onClick: handleSaveNote, children: "Save Note" }) }), _jsx(Box, { ml: 2, minWidth: "40px", children: _jsx(Button, { type: "submit", mt: 4, colorScheme: "pink", onClick: handleClearCurrentNote, children: "Clear Current Note" }) }), _jsx(Box, { ml: 2, minWidth: "40px", children: _jsx(Button, { type: "submit", mt: 4, colorScheme: "pink", onClick: handleClearAllNotes, children: "Clear All Notes" }) })] }));
 };
 export default VoiceToText;
