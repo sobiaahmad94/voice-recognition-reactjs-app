@@ -8,14 +8,12 @@ import {Container, Heading} from "@chakra-ui/react";
 
 const App = () => {
   return (
-    <div>
-      <Container alignItems="center" margin="40px">
+      <Container alignItems="center">
         <Heading size="2xl" margin="10px" color="pink.400">Voice Recognition App</Heading>
         <TextToVoice />
         <VoiceToText />
-        </Container>
+      </Container>
 
-    </div>
   )
 }
 export default App;

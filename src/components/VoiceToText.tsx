@@ -107,44 +107,44 @@ const VoiceToText: React.FC = () => {
   };
 
   return (
-    <Container p={4}>
-      <Heading size="lg" color="pink.300">Voice To Text</Heading>
-
+    <Container>
+      <Heading size="lg" color="blackAlpha.800">Voice To Text</Heading>
       <Box color="pink.300" display="flex" alignItems="center" mt={4}>
-      <Button type="submit" mt={4} colorScheme="pink" size="lg" onClick={toggleListening}>
+      <Button type="submit" mt={4} backgroundColor="black" color="pink.300" size="lg" onClick={toggleListening}>
         {isListening ? "Stop Listening" : "Start Listening"}
       </Button>
       </Box>
 
-  <Box color="pink.300" display="flex" alignItems="center" mt={4}>
-  <Box><Text>Notes taken from recognised text:</Text></Box>
-  <UnorderedList margin="10px" spacing={3}>
-    {recognisedText.map((note, index) => (
-      <ListItem key={index}>
-        {note}
-        <Button type="submit" mt={4} colorScheme="red" onClick={() => handleDeleteNote(index)}>Delete</Button>
-      </ListItem>
-      
-    ))}
-  </UnorderedList>
+        <Box color="black.900" alignItems="right" mt={4}>
+        <Heading size="md">Currently listening to the following text:</Heading>
+        </Box>
+        <Text color="pink.300" mt={3}>{currentText}</Text>
+
+        <Box>
+        <Button type="submit" margin="10px" mt={4} colorScheme="pink" onClick={handleSaveNote}>Save Note</Button>
+
+        <Button type="submit" margin="10px" mt={4} colorScheme="pink" onClick={handleClearCurrentNote}>Clear Current Note</Button>
+      <Button type="submit" margin="10px" mt={4} colorScheme="pink" onClick={handleClearAllNotes}>Clear All Notes</Button>
+    </Box>
+
+<Box color="pink.300" alignItems="center" mt={4}>
+<Text color="blackAlpha.900" fontWeight="bold">My recorded notes:</Text>
+
+<UnorderedList spacing={2} margin="0px" listStyleType="none">
+  {recognisedText.map((note, index) => (
+    <ListItem key={index} >
+      {note}
+      <Box>
+      <Button size="sm" type="submit" mt={1} color="pink.500" onClick={() => handleDeleteNote(index)}>Delete</Button>
+      </Box>
+    </ListItem>
+    
+  ))}
+</UnorderedList>
 </Box>
 
-        <Box color="pink.300" display="flex" alignItems="center" mt={4}>
-        <Text>Current Text:</Text>
-        <Text>{currentText}</Text>
-        </Box>
-        <Box ml={2} minWidth="40px">
-        <Button type="submit" mt={4} colorScheme="pink" onClick={handleSaveNote}>Save Note</Button>
-        </Box>
+</Container>
 
-        <Box ml={2} minWidth="40px">
-        <Button type="submit" mt={4} colorScheme="pink" onClick={handleClearCurrentNote}>Clear Current Note</Button>
-        </Box>
-
-      <Box ml={2} minWidth="40px">
-      <Button type="submit" mt={4} colorScheme="pink" onClick={handleClearAllNotes}>Clear All Notes</Button>
-    </Box>
-    </Container>
   );
 };
 

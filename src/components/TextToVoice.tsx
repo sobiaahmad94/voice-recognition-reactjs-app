@@ -128,13 +128,13 @@ const TextToVoice: React.FC = () => {
   return (
     <div>
       <Container p={4}>
-        <Heading size="lg" color="pink.300">Text To Voice</Heading>
+        <Heading size="lg" color="blackAlpha.800">Text To Voice</Heading>
 
         <form onSubmit={(event) => {event.preventDefault();
             speak();}}>
-          <Input type="text" value={text} onChange={(event) => setText(event.target.value)} mt={4} placeholder="Enter some text here..."/>
+          <Input color="pink.300" type="text" value={text} onChange={(event) => setText(event.target.value)} mt={4} placeholder="Please enter some text here..."/>
   
-          <Select cursor="pointer" value={selectedVoice} onChange={handleVoiceSelectChange} mt={2}>{voices.map((voice) => (
+          <Select color="pink.300" backgroundColor="blackAlpha.900" cursor="pointer" value={selectedVoice} onChange={handleVoiceSelectChange} mt={2}>{voices.map((voice) => (
               <option key={voice.name} value={voice.name}>
                 {voice.name} ({voice.lang})
               </option>
