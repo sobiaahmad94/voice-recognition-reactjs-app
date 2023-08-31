@@ -128,6 +128,7 @@ const TextToVoice: React.FC = () => {
   return (
     <div>
       <Container p={4}>
+      <Box padding={2} mt={2} borderTop="1px solid lightGrey"></Box>
         <Heading size="lg" color="blackAlpha.800">Text To Voice</Heading>
 
         <form onSubmit={(event) => {event.preventDefault();

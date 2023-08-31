@@ -108,6 +108,7 @@ const VoiceToText: React.FC = () => {
 
   return (
     <Container>
+      <Box padding={2} mt={2} borderTop="1px solid lightGrey"></Box>
       <Heading size="lg" color="blackAlpha.800">Voice To Text</Heading>
       <Box color="pink.300" display="flex" alignItems="center" mt={4}>
       <Button type="submit" mt={4} backgroundColor="black" color="pink.300" size="lg" onClick={toggleListening}>
