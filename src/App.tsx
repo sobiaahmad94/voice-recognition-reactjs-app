@@ -10,7 +10,7 @@ import {Container, Heading} from "@chakra-ui/react";
 const App = () => {
   return (
       <Container alignItems="center">
-        <Heading size="xl" margin="10px" color="pink.400">Voice Recognition App</Heading>
+        <Heading size="lg" margin="10px" color="pink.400">Voice Recognition App</Heading>
         <TextToVoice />
         <VoiceToText />
         <Footer />
